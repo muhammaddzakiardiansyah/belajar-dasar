@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            /* sesuaikan lebar gambar */
+            height: 267px;
+            /* sesuaikan tinggi gambar */
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container div {
+            position: absolute;
+            overflow: hidden;
+            transition: opacity 0.5s;
+        }
+
+        /* Menentukan ukuran dan posisi masing-masing kartu */
+        .container div:nth-child(1) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 0%;
+            top: 0%;
+        }
+
+        .container div:nth-child(2) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 33.33%;
+            top: 0%;
+        }
+
+        .container div:nth-child(3) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 66.67%;
+            top: 0%;
+        }
+
+        .container div:nth-child(4) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 0%;
+            top: 33.33%;
+        }
+
+        .container div:nth-child(5) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 33.33%;
+            top: 33.33%;
+        }
+
+        .container div:nth-child(6) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 66.67%;
+            top: 33.33%;
+        }
+
+        .container div:nth-child(7) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 0%;
+            top: 66.67%;
+        }
+
+        .container div:nth-child(8) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 33.33%;
+            top: 66.67%;
+        }
+
+        .container div:nth-child(9) {
+            width: 33.33%;
+            height: 33.33%;
+            left: 66.67%;
+            top: 66.67%;
+        }
+
+        /* Animasi kartu yang hilang */
+        .container div:hover {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="photo1.jpg" alt="Gambar yang akan dipotong">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Timer</title>
+	<style>
+		#timer {
+			font-size: 5em;
+			text-align: center;
+			margin: 50px 0;
+		}
+
+		#buttons {
+			display: flex;
+			justify-content: center;
+		}
+
+		button {
+			font-size: 1.5em;
+			padding: 10px 20px;
+			margin: 0 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Timer</h1>
+	<div id="timer">000:00</div>
+	<div id="buttons">
+		<button id="start">Start Timer</button>
+		<button id="stop">Stop Timer</button>
+		<button id="reset">Reset Timer</button>
+	</div>
+	<script>
+		var interval;
+		var seconds = 0, centiseconds = 0;
+		var timer = document.getElementById('timer');
+
+		function startTimer() {
+			centiseconds++;
+
+			if (centiseconds == 100) {
+				centiseconds = 0;
+				seconds++;
+			}
+
+			if (seconds > 999) {
+				seconds = 0;
+			}
+
+			var s = seconds < 10 ? '00' + seconds : seconds < 100 ? '0' + seconds : seconds;
+			var c = centiseconds < 10 ? '0' + centiseconds : centiseconds;
+
+			timer.innerText = s + ':' + c;
+		}
+
+		document.getElementById('start').addEventListener('click', function () {
+			interval = setInterval(startTimer, 10);
+		});
+
+		document.getElementById('stop').addEventListener('click', function () {
+			clearInterval(interval);
+		});
+
+		document.getElementById('reset').addEventListener('click', function () {
+			clearInterval(interval);
+			seconds = 0;
+			centiseconds = 0;
+			timer.innerText = '000:00';
+		});
+	</script>
+</body>
+
+</html>
+
+<noscript>
+	Penjelasan:
+
+	- Script tersebut adalah HTML, CSS, dan JavaScript.
+	- Script mendefinisikan tiga variabel global, yaitu interval, seconds, dan centiseconds yang berfungsi sebagai
+	counter
+	waktu.
+	- Fungsi startTimer menambahkan 1 sentimeter ke variabel centiseconds, dan menyesuaikan variabel seconds jika
+	diperlukan. Kemudian, nilai yang dihasilkan dari counter waktu akan ditampilkan di dalam elemen HTML yang sesuai.
+	- Ketika tombol start ditekan, fungsi startTimer dipanggil setiap 10 milidetik menggunakan fungsi setInterval dan
+	disimpan ke dalam variabel interval.
+	- Ketika tombol stop ditekan, interval yang berisi fungsi startTimer dihentikan menggunakan fungsi clearInterval.
+	- Ketika tombol reset ditekan, interval dihentikan, dan counter waktu direset menjadi 0. Nilai counter ditampilkan
+	kembali ke tampilan awal.
+	- Tampilan timer menggunakan CSS untuk mengatur ukuran font, posisi, dan tata letak.
+	- Fungsi startTimer mengubah nilai detik dan sentimeter menjadi format yang sesuai dengan menggunakan operator
+	kondisional.
+</noscript>

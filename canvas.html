@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .kotak {
+            width: 400px;
+            height: 320px;
+            background-color: green;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kotak">
+        <canvas id="myCanvas" width="400" height="320"></canvas>
+    </div>
+    <script>
+        // Ambil elemen canvas dari HTML
+        const canvas = document.getElementById("myCanvas");
+
+        // Dapatkan konteks untuk menggambar pada kanvas
+        const ctx = canvas.getContext("2d");
+
+        // Atur posisi awal bola
+        let x = 50;
+        let y = canvas.height / 2;
+        let dx = 2; // kecepatan horizontal
+
+        // Gambar bola pada kanvas
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2);
+            ctx.fillStyle = "#FDFEFE";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Fungsi animasi
+        function animate() {
+            // Bersihkan kanvas sebelum menggambar bola yang telah digerakkan
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Gambar bola pada posisi baru
+            drawBall();
+
+            // Pindahkan bola pada sumbu x (horizontal)
+            x += dx;
+
+            // Jika bola mencapai tepi kanan kanvas, balik arah ke kiri
+            if (x + 20 > canvas.width || x - 20 < 0) {
+                dx = -dx;
+            }
+
+            // Panggil fungsi animasi lagi dengan requestAnimationFrame
+            requestAnimationFrame(animate);
+        }
+
+        // Mulai animasi ketika halaman dimuat
+        window.onload = animate;
+
+    </script>
+</body>
+
+</html>
+
+<noscript>
+    Penjelasan:
+
+    - Kita menggunakan elemen <canvas> di HTML untuk menggambar lingkaran dalam wadah.
+        - Kita mendapatkan konteks 2D untuk menggambar pada kanvas dengan menggunakan canvas.getContext("2d").
+        - Kita menggambar bola pada kanvas dengan menggunakan ctx.arc() dan mengisi warna dengan ctx.fillStyle.
+        - Kita menggunakan requestAnimationFrame() untuk melakukan animasi bola dan memanggil fungsi animate() terus
+        menerus pada setiap frame animasi.
+        - Pada setiap frame animasi, kita membersihkan kanvas sebelum menggambar bola pada posisi baru, dan menggerakkan
+        bola pada sumbu x (horizontal). Jika bola mencapai tepi kanan kanvas, kita membalik arahnya ke kiri.
+
+</noscript>
