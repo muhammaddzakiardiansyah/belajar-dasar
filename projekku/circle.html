@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="background-color: lightgreen;"></canvas>
+
+    <script>
+        const myCanvas = document.querySelector('#myCanvas');
+
+        myCanvas.width = 600;
+        myCanvas.height = 400;
+
+        const ctx = myCanvas.getContext('2d');
+
+        let x = 20;
+        let y = myCanvas.height / 2;
+        let dx = 5;
+
+        function circle() {
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function animasi() {
+            window.requestAnimationFrame(animasi);
+            ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+            circle();
+            x += dx;
+
+            if(x + 20 > myCanvas.width || x - 20 < 0) {
+                dx = -dx;
+            }
+
+        }
+        animasi();
+    </script>
+</body>
+</html>
