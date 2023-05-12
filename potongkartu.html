@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-container {
+  position: relative;
+  width: 400px; /* Sesuaikan dengan lebar gambar */
+  height: 240px; /* Sesuaikan dengan tinggi gambar */
+  overflow: hidden;
+}
+
+.card-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s;
+}
+
+.card-container:hover img {
+  opacity: 0;
+}
+
+.card-container:hover img:nth-child(5n+1) {
+  left: -80px;
+}
+
+.card-container:hover img:nth-child(5n+2) {
+  left: -160px;
+}
+
+.card-container:hover img:nth-child(5n+3) {
+  left: -240px;
+}
+
+.card-container:hover img:nth-child(5n+4) {
+  left: -320px;
+}
+
+.card-container:hover img:nth-child(5n+5) {
+  left: -400px;
+}
+
+.card-container img:nth-child(3n+1) {
+  top: -80px;
+}
+
+.card-container img:nth-child(3n+2) {
+  top: -160px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <img src="photo1.jpg" alt="Gambar" />
+      </div>
+</body>
+</html>
