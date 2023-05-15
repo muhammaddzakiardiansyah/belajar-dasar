@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loader</title>
+    <title>loader | punyaku</title>
     <style>
-        .loader {
+        .container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 350px auto;
             position: relative;
-            width: 50px;
-            height: 50px;
-            margin: 50px auto;
-            animation: rotate 5s infinite;
+            animation: spin 1.2s ease-in-out infinite;
         }
 
-        .circle {
+        @keyframes spin {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+
+        .ball {
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -22,45 +32,81 @@
         }
 
         .top {
-            left: 0;
-            top: -22;
-            background-color: yellow;
-            animation: top 1s linear infinite;
+            background-color: #19A68C;
+            left: 36px;
+            top: -22px;
+            animation: top 1.2s linear infinite;
         }
 
         @keyframes top {
             50%{
-                top: 22px;
+                top: 70px;
             }
             100%{
-                top: 22px;
+                top: 70px;
+                /* background-color: green; */
             }
         }
 
         .right {
-            top: 0;
-            right: -22px;
-            background-color: red;
-            animation: right 1s linear infinite;
+            background-color:  #F63D3A;
+            right: -20px;
+            bottom: 40px;
+            animation: right 1.2s linear infinite;
         }
 
         @keyframes right {
             50%{
-                right: 20px;
+                right: 70px;
             }
             100%{
-                right: 22px;
+                right: 70px;
+                /* background-color: blue; */
+            }
+        }
+
+        .bottom {
+            background-color: #FDA543;
+            bottom: -10px;
+            left: 36px;
+            animation: bottom 1.2s linear infinite;
+        }
+
+        @keyframes bottom {
+            50%{
+                bottom: 70px;
+            }
+            100%{
+                bottom: 70px;
+                /* background-color: yellow; */
+            }
+        }
+
+        .left {
+            background-color: #193B48;
+            left: -16px;
+            top: 35px;
+            animation: left 1.2s linear infinite;
+        }
+
+        @keyframes left {
+            50%{
+                left: 70px;
+            }
+            100%{
+                left: 70px;
+                /* background-color: red; */
             }
         }
 
     </style>
 </head>
 <body>
-    <div class="loader">
-        <div class="top circle"></div>
-        <div class="right circle"></div>
-        <div class="bottom circle"></div>
-        <div class="left circle"></div>
+    <div class="container">
+        <div class="top ball"></div>
+        <div class="right ball"></div>
+        <div class="bottom ball"></div>
+        <div class="left ball"></div>
     </div>
 </body>
 </html>

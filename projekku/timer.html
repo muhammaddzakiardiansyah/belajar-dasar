@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer | punyaku</title>
+    <style>
+        .container {
+            width: 600px;
+            height: 600px;
+            margin: 250px auto;
+            color: black;
+            font-family: bold, Helvetica, sans-serif;
+        }
+        #timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 7em;
+            margin-bottom: 20px;
+            color: rgb(241, 42, 42);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttons #start {
+            background-color: rgb(56, 221, 56);
+            padding: 5px 15px;
+            margin: 10px;
+            border: 0;
+        }
+
+        .buttons #pause {
+            background-color: rgb(235, 34, 34);
+            padding: 5px 15px;
+            margin: 10px;
+            border: 0;
+        }
+
+        .buttons #reset {
+            background-color: rgb(248, 248, 37);
+            padding: 5px 15px;
+            margin: 10px;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="timer">000:00</div>
+        <div class="buttons">
+            <button id="start">Start timer</button>
+            <button id="pause">Pause timer</button>
+            <button id="reset">Reset timer</button>
+        </div>
+    </div>
+
+    <script>
+        let jarak_waktu;
+        let detik = 0, sentimeter = 0;
+        const timer = document.getElementById('timer');
+
+        function start() {
+            sentimeter++;
+            
+            if(sentimeter == 100) {
+                sentimeter = 0;
+                detik++
+            }
+
+            if(detik > 999) {
+                detik = 0;
+            }
+
+            let d = detik < 10 ? '00' + detik : detik < 100 ? '0' + detik : detik;
+            let s = sentimeter < 10 ? '0' + sentimeter : sentimeter;
+
+            timer.innerText = d + ':' + s;
+        }
+
+        document.getElementById('start').addEventListener('click', function() {
+            jarak_waktu = setInterval(start, 10);
+        });
+
+        document.getElementById('pause').addEventListener('click', function() {
+            jarak_waktu = clearInterval(jarak_waktu);
+        });
+
+        document.getElementById('reset').addEventListener('click', function() {
+            jarak_waktu = clearInterval(jarak_waktu);
+            detik = 0;
+            sentimeter = 0;
+            timer.innerText = '000:00';
+        });
+    </script>
+</body>
+</html>
