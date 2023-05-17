@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key</title>
+    <style>
+        h2 {
+            margin: 50px auto;
+        }
+
+        .container {
+            display: flex;
+            width: 800px;
+            height: 980px;
+            border: 1px solid black;
+            margin: 50px auto;
+        }
+
+        .container >.circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            justify-content: center;
+            align-content: space-around;
+        }
+
+        .d {
+            background-color: lightgreen;
+        }
+
+        .f {
+            background-color: lightblue;
+        }
+
+        .j {
+            background-color: lightseagreen;
+        }
+
+        .k {
+            background-color: lightsalmon;
+        }
+
+        @keyframes rotate {
+            100%{
+                background-color: white;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <input type="text" class="kyboard">
+    <button class="btn">send</button>
+    <h2 id="text">haii...</h2> -->
+    <div class="container">
+        <div class="circle d">D</div>
+        <div class="circle f">F</div>
+        <div class="circle j">J</div>
+        <div class="circle k">K</div>
+    </div>
+    
+
+    <script>
+        const keyboard = document.querySelector('.kyboard');
+        const text = document.getElementById('text');
+        const btn = document.querySelector('.btn');
+        const D = document.querySelector('.d');
+        const F = document.querySelector('.f');
+        const J = document.querySelector('.j');
+        const K = document.querySelector('.k');
+
+        // d
+        window.addEventListener('keydown', d => {
+            if(d.key == 'd') D.style.animation = 'rotate 1s infinite'
+        })
+        window.addEventListener('keyup', u => {
+            if(u.key == 'd') D.style.animation = 'none'
+        })
+        // f
+        window.addEventListener('keydown', d => {
+            if(d.key == 'f') F.style.animation = 'rotate 1s infinite'
+        })
+        window.addEventListener('keyup', u => {
+            if(u.key == 'f') F.style.animation = 'none'
+        })
+        // j
+        window.addEventListener('keydown', d => {
+            if(d.key == 'j') J.style.animation = 'rotate 1s infinite'
+        })
+        window.addEventListener('keyup', u => {
+            if(u.key == 'j') J.style.animation = 'none'
+        })
+        // k
+        window.addEventListener('keydown', d => {
+            if(d.key == 'k') K.style.animation = 'rotate 1s infinite'
+        })
+        window.addEventListener('keyup', u => {
+            if(u.key == 'k') K.style.animation = 'none'
+        })
+    </script>
+</body>
+</html>
